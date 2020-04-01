@@ -1,6 +1,6 @@
 use Mix.Config
 
-config :plug_pubsub,
+config :aws_pubsub,
   queue_url: System.get_env("AWS_QUEUE_URL"),
   publish_topic_arn: System.get_env("AWS_TOPIC_ARN")
 

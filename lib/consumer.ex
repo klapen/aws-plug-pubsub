@@ -1,4 +1,4 @@
-defmodule PlugPubsub.Consumer do
+defmodule AwsPubsub.Consumer do
   @moduledoc """
   Consumes messages from a Queue SQS
   """
@@ -8,7 +8,7 @@ defmodule PlugPubsub.Consumer do
 
   use GenServer
   
-  @queue_url Application.fetch_env!(:plug_pubsub, :queue_url)
+  @queue_url Application.fetch_env!(:aws_pubsub, :queue_url)
 
   def start_link(_) do
     GenServer.start_link(__MODULE__, :ok, name: __MODULE__)

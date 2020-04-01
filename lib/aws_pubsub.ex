@@ -1,12 +1,12 @@
-defmodule PlugPubsub do
+defmodule AwsPubsub do
   @moduledoc """
-  Documentation for `PlugPubsub`.
+  Documentation for `AwsPubsub`.
   """
   alias ExAws.SNS
 
   require Logger
 
-  @topic Application.fetch_env!(:plug_pubsub, :publish_topic_arn)
+  @topic Application.fetch_env!(:aws_pubsub, :publish_topic_arn)
   
   defp publish(title, msg) do
     opts = [subject: title, topic_arn: @topic]

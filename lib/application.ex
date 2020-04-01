@@ -1,4 +1,4 @@
-defmodule PlugPubsub.Application do
+defmodule AwsPubsub.Application do
   @moduledoc false
 
   use Application
@@ -7,10 +7,10 @@ defmodule PlugPubsub.Application do
     import Supervisor.Spec, warn: false
 
     children = [
-      PlugPubsub.Consumer
+      AwsPubsub.Consumer
     ]
 
-    opts = [strategy: :one_for_one, name: PlugPubsub.Supervisor]
+    opts = [strategy: :one_for_one, name: AwsPubsub.Supervisor]
     Supervisor.start_link(children, opts)
   end
 end

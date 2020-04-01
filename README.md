@@ -1,4 +1,4 @@
-# PlugPubsub
+# AwsPubsub
 
 
 This proyect implements [ExAws.SNS](https://hexdocs.pm/ex_aws_sns/ExAws.SNS.html) to publish messages to an AWS SNS Topic and [ExAws.SQS](https://hexdocs.pm/ex_aws_sqs/ExAws.SQS.html) to cconsume messages sent to AWS SQS, in [Elixir](https://elixir-lang.org/).
@@ -11,12 +11,12 @@ This proyect implements [ExAws.SNS](https://hexdocs.pm/ex_aws_sns/ExAws.SNS.html
 ├── lib
 │   ├── application.ex
 │   ├── consumer.ex
-│   └── plug_pubsub.ex
+│   └── aws_pubsub.ex
 ├── mix.exs
 ├── mix.lock
 ├── README.md
 └── test
-    ├── plug_pubsub_test.exs
+    ├── aws_pubsub_test.exs
     └── test_helper.exs
 ```
 
@@ -49,7 +49,7 @@ If you deploy the module on a AWS Server, it will take the instance role configu
 
 ## Installation
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed by adding `plug_pubsub` to your list of dependencies in `mix.exs`:
+If [available in Hex](https://hex.pm/docs/publish), the package can be installed by adding `aws_pubsub` to your list of dependencies in `mix.exs`:
 
 ```elixir
 def application do
@@ -60,7 +60,7 @@ end
 
 def deps do
   [
-    {:plug_pubsub, "~> 0.1.0", runtime: false}
+    {:aws_pubsub, "~> 0.1.0", runtime: false}
   ]
 end
 ```
@@ -69,7 +69,7 @@ This configuration is **only** to use the publisher, because I still working on 
 ```elixir
 use Mix.Config
 
-config :plug_pubsub,
+config :aws_pubsub,
   queue_url: System.get_env("AWS_QUEUE_URL"),
   publish_topic_arn: System.get_env("AWS_TOPIC_ARN")
 
@@ -79,7 +79,7 @@ config :ex_aws,
   region: [System.get_env("AWS_REGION"), "us-east-1"]
 ```
 
-Documentation docs can be found at [https://hexdocs.pm/plug_pubsub](https://hexdocs.pm/plug_pubsub).
+Documentation docs can be found at [https://hexdocs.pm/aws_pubsub](https://hexdocs.pm/aws_pubsub).
 
 ## How to use
 

@@ -1,10 +1,10 @@
-defmodule PlugPubsub.MixProject do
+defmodule AwsPubsub.MixProject do
   use Mix.Project
 
   def project do
     [
-      app: :plug_pubsub,
-      version: "0.2.0",
+      app: :aws_pubsub,
+      version: "0.0.1",
       elixir: "~> 1.10",
       start_permanent: Mix.env() == :prod,
       description: description(),
@@ -24,7 +24,7 @@ defmodule PlugPubsub.MixProject do
       files: ["lib", "mix.exs", "README*", "LICENSE*"],
       maintainers: ["Orlando Saavedrta"],
       licenses: ["MIT"],
-      links: %{"GitHub" => "https://github.com/klapen/aws-plug-pubsub"}
+      links: %{"GitHub" => "https://github.com/klapen/ex-aws-pubsub"}
     ]
   end
   
@@ -33,7 +33,7 @@ defmodule PlugPubsub.MixProject do
     [
       extra_applications: [:logger],
       applications: [:hackney],
-      mod: {PlugPubsub.Application, []}
+      mod: {AwsPubsub.Application, []}
     ]
   end
 
