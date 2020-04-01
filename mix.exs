@@ -32,6 +32,7 @@ defmodule PlugPubsub.MixProject do
   def application do
     [
       extra_applications: [:logger],
+      applications: [:hackney],
       mod: {PlugPubsub.Application, []}
     ]
   end
@@ -44,7 +45,8 @@ defmodule PlugPubsub.MixProject do
       {:ex_aws_sqs, "~> 3.0"},
       {:sweet_xml, "~> 0.6"},
       {:jason, "~> 1.2"},
-      {:hackney, "~> 1.15"}
+      {:hackney, "~> 1.15"},
+      {:ex_doc, "~> 0.19"}
     ]
   end
 end

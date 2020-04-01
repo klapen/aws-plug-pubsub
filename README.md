@@ -49,20 +49,37 @@ If you deploy the module on a AWS Server, it will take the instance role configu
 
 ## Installation
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `plug_pubsub` to your list of dependencies in `mix.exs`:
+If [available in Hex](https://hex.pm/docs/publish), the package can be installed by adding `plug_pubsub` to your list of dependencies in `mix.exs`:
 
 ```elixir
+def application do
+  [
+    applications: [:hackney]
+  ]
+end
+
 def deps do
   [
-    {:plug_pubsub, "~> 0.1.0"}
+    {:plug_pubsub, "~> 0.1.0", runtime: false}
   ]
 end
 ```
+This configuration is **only** to use the publisher, because I still working on the consumer to work on the package. You will also need to, manually set the config parameters on *config.exs*:
 
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at [https://hexdocs.pm/plug_pubsub](https://hexdocs.pm/plug_pubsub).
+```elixir
+use Mix.Config
+
+config :plug_pubsub,
+  queue_url: System.get_env("AWS_QUEUE_URL"),
+  publish_topic_arn: System.get_env("AWS_TOPIC_ARN")
+
+config :ex_aws,
+  access_key_id: [{:system, "AWS_ACCESS_KEY_ID"}, :instance_role],
+  secret_access_key: [{:system, "AWS_SECRET_ACCESS_KEY"}, :instance_role],
+  region: [System.get_env("AWS_REGION"), "us-east-1"]
+```
+
+Documentation docs can be found at [https://hexdocs.pm/plug_pubsub](https://hexdocs.pm/plug_pubsub).
 
 ## How to use
 
