@@ -24,7 +24,7 @@ defmodule PlugPubsub.MixProject do
       files: ["lib", "mix.exs", "README*", "LICENSE*"],
       maintainers: ["Orlando Saavedrta"],
       licenses: ["MIT"],
-      links: %{"GitHub" => "https://github.com/klapen/plug-pubsub"}
+      links: %{"GitHub" => "https://github.com/klapen/aws-plug-pubsub"}
     ]
   end
   
